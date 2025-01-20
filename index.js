@@ -12,10 +12,12 @@ import dashboardRouter from './routes/dashboard.js'
 const PORT = process.env.PORT;
 connectToDatabase();
 const app = express();
-app.use(cors({
-    origin: "https://ems-frontend-sigma.vercel.app",
-    credentials: true
-}))
+app.use(cors(
+    {
+        origin: "https://ems-frontend-sigma.vercel.app",
+        credentials: true
+    }
+))
 app.use(express.json())
 app.use(express.static('public/uploads'))
 app.use('/api/auth', authRouter);

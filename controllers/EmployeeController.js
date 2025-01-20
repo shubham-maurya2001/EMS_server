@@ -7,10 +7,10 @@ import multer from 'multer'
 
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, 'public/uploads')
+    cb(null, './public/uploads')
   },
   filename: (req, file, cb) => {
-    cb(null, Date.now() + path.extname(file.originalname))
+    cb(null, `${Date.now()}-${file.originalname}`);
   }
 })
 
@@ -44,7 +44,8 @@ const addEmployee = async (req, res) => {
       email,
       password: hashPassword,
       role,
-      profileImage: req.file ? req.file.filename : ""
+      profileImage: req.file ? req.file.filename : "",
+      path: req.file ? req.file.path : ""
     })
     const savedUser = await newUser.save()
 
