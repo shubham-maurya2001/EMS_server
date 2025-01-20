@@ -18,7 +18,6 @@ const upload = multer({ storage: storage })
 
 const addEmployee = async (req, res) => {
   try {
-    console.log(req.body);
     const {
       name,
       email,
@@ -63,7 +62,6 @@ const addEmployee = async (req, res) => {
     await newEmployee.save();
     return res.status(200).json({ success: true, message: "Employee created" })
   } catch (error) {
-    console.log(error)
     return res.status(500).json({ success: false, error: 'server error in adding employee' })
   }
 }
