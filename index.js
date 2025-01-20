@@ -15,6 +15,7 @@ const app = express();
 app.use(cors(
     {
         origin: "https://ems-frontend-sigma.vercel.app",
+        methods: ['GET', 'POST', 'PUT', 'DELETE'],
         credentials: true
     }
 ))
