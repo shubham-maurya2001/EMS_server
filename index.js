@@ -8,9 +8,12 @@ import salaryRouter from './routes/salary.js'
 import leaveRouter from './routes/leave.js'
 import settingRouter from './routes/setting.js'
 import dashboardRouter from './routes/dashboard.js'
+import bodyParser from 'body-parser';
+import dotenv from 'dotenv';
 
 const PORT = process.env.PORT;
 connectToDatabase();
+dotenv.config();
 const app = express();
 app.use(cors(
     {
@@ -20,6 +23,7 @@ app.use(cors(
     }
 ))
 app.use(express.json())
+app.use(bodyParser.json());
 app.use(express.static('public/uploads'))
 app.use('/api/auth', authRouter);
 app.use('/api/department', departmentRouter)
