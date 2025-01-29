@@ -26,7 +26,7 @@ const getLeave = async (req, res) => {
           populate: [
             {
               path: 'userId',
-              select: ['name', 'profileImage'],
+              select: ['name', 'profileImageUrl'],
             },
             {
               path: 'department',
