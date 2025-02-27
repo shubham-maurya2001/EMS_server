@@ -17,11 +17,11 @@ connectToDatabase();
 dotenv.config();
 const app = express();
 app.use(cors(
-    // {
-    //     origin: "https://ems-frontend-sigma.vercel.app",
-    //     methods: ['GET', 'POST', 'PUT', 'DELETE'],
-    //     credentials: true
-    // }
+    {
+        origin: "https://ems-frontend-sigma.vercel.app",
+        methods: ['GET', 'POST', 'PUT', 'DELETE'],
+        credentials: true
+    }
 ))
 app.use(express.json())
 app.use(bodyParser.json());
