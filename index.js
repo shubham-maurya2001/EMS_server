@@ -8,6 +8,7 @@ import salaryRouter from './routes/salary.js'
 import leaveRouter from './routes/leave.js'
 import settingRouter from './routes/setting.js'
 import dashboardRouter from './routes/dashboard.js'
+import attendanceRouter from './routes/attendance.js'
 import bodyParser from 'body-parser';
 import dotenv from 'dotenv';
 
@@ -16,11 +17,11 @@ connectToDatabase();
 dotenv.config();
 const app = express();
 app.use(cors(
-    {
-        origin: "https://ems-frontend-sigma.vercel.app",
-        methods: ['GET', 'POST', 'PUT', 'DELETE'],
-        credentials: true
-    }
+    // {
+    //     origin: "https://ems-frontend-sigma.vercel.app",
+    //     methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    //     credentials: true
+    // }
 ))
 app.use(express.json())
 app.use(bodyParser.json());
@@ -32,6 +33,7 @@ app.use('/api/salary', salaryRouter)
 app.use('/api/leave', leaveRouter)
 app.use('/api/setting', settingRouter)
 app.use('/api/dashboard', dashboardRouter)
+app.use('/api/attendance', attendanceRouter)
 
 
 app.listen(PORT, () => {
